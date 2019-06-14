@@ -1,142 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html style="font-size: 4.0vw">
   <head>
     <meta charset="utf-8" />
     <meta
       name="viewport"
-      content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"
+      content="width=device-width,initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, shrink-to-fit=no, viewport-fit=cover"
     />
-    <meta
-      name="format-detection"
-      content="telephone=no,email=no,date=no,address=no"
+    <!--iOS Safari ( Android 或其他浏览器不会) 会自动识别看起来像电话号码的数字，将其处理为电话号码链接， 关闭电话号码识别：-->
+    <meta name="format-detection" content="telephone=no" />
+    <!-- 指定 iOS 的 safari 顶端状态条的样式 可选default、black、black-translucent-->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title></title>
+    <link
+      rel="stylesheet"
+      href="https://at.alicdn.com/t/font_1206888_kevae4mojb.css"
     />
-    <title>Hello APP</title>
-    <link rel="stylesheet" type="text/css" href="./css/api.css" />
-    <style type="text/css">
-      html,
-      body {
-        height: 100%;
-      }
-      #wrap {
-        height: 100%;
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: flex;
-        -webkit-box-orient: vertical;
-        -webkit-flex-flow: column;
-        flex-flow: column;
-      }
-      #header {
-        text-align: center;
-        background-color: #81a9c3;
-        color: #fff;
-        width: 100%;
-      }
-      #header h1 {
-        font-size: 20px;
-        height: 44px;
-        line-height: 44px;
-        margin: 0em;
-        color: #fff;
-      }
-      #main {
-        -webkit-box-flex: 1;
-        -webkit-flex: 1;
-        flex: 1;
-      }
-      #footer {
-        height: 30px;
-        line-height: 30px;
-        background-color: #81a9c3;
-        width: 100%;
-        text-align: center;
-      }
-      #footer h5 {
-        color: white;
-      }
-      .con {
-        font-size: 28px;
-        text-align: center;
-      }
-    </style>
   </head>
   <body>
-    <div id="wrap">
-      <div id="header">
-        <h1>APICloud</h1>
-      </div>
-      <div id="main"></div>
-      <div id="footer">
-        <h5>Copyright &copy;<span id="year"></span></h5>
-      </div>
-    </div>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+    <script src="https://at.alicdn.com/t/font_1206888_facev0g6x8b.js"></script>
   </body>
-  <script type="text/javascript" src="./script/api.js"></script>
-  <script src="https://cdn.bootcss.com/vConsole/3.3.0/vconsole.min.js"></script>
-  <script>
-    // init vConsole
-    var vConsole = new VConsole();
-  </script>
-  <script type="text/javascript">
-    apiready = function() {
-      console.log("Hello APICloud");
-
-      var header = $api.byId("header");
-      //适配iOS 7+，Android 4.4+状态栏
-      $api.fixStatusBar(header);
-
-      var headerPos = $api.offset(header);
-      var main = $api.byId("main");
-      var mainPos = $api.offset(main);
-      var year = $api.byId("year");
-      year.innerHTML = new Date().getFullYear();
-      api.openWin({
-            name: 'main',
-            url: 'html/index.html',
-            bounces: true,
-            rect: {
-                x: 0,
-                y: headerPos.h,
-                w: 'auto',
-                h: mainPos.h
-            }
-        });
-
-      // 1.人脸核身全流程
-      function runySKAuth() {
-        var ySKAuth = api.require("ySKAuth");
-        ySKAuth.startAuth(params, function(ret, err) {
-          if (!err) {
-            //success回调
-            console.log(JSON.stringify(ret));
-          } else {
-            //error回调
-          }
-        });
-      }
-      // 默认配置
-      var params = {
-        appKey: "oBEEtj7sKrcxjGZSTCkoJoBsSbijXoFThALE1kzYsi",
-        secretKey: "62BCC69E100A4EA992E047735D4611D4",
-        traceId: new Date().getTime() + "",
-        //   notifyUrl: 'xxx',
-        //   extensionInfo: 'xxx',
-        needUserGuide: true,
-        isOcrFirst: false,
-        idCardOperation: {
-          mode: "FRONT_RECOGNIZE_BACK_RECOGNIZE",
-          displayInfo: "1,2",
-          modifyInfo: "1"
-        },
-        livenessOperation: {
-          actionNum: 3,
-          actions: "0,1,2",
-          realAuth: true,
-          isNeedFaceCompare: true
-        }
-      };
-
-      runySKAuth()
-    };
-  </script>
 </html>
