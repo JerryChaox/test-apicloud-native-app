@@ -12,7 +12,7 @@
 	<preference name="userAgent" value="apicloud" />
     <preference name="pageBounce" value="false"/>
 	<preference name="appBackground" value="rgba(0,0,0,0.0)"/>
-	<preference name="windowBackground" value="rgba(0,0,0,0.0)"/>
+	<preference name="windowBackground" value="rgba(255,255,255,0.0)"/>
 	<preference name="frameBackgroundColor" value="rgba(0,0,0,0.0)"/>
 	<preference name="hScrollBarEnabled" value="true"/>
 	<preference name="vScrollBarEnabled" value="true"/>
