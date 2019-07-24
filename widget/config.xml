@@ -10,6 +10,7 @@
     <content src="index.html" />
     <access origin="*" />
 	<preference name="userAgent" value="apicloud" />
+	<preference name="appCertificateVerify" value="false"/>
     <preference name="pageBounce" value="false"/>
 	<preference name="appBackground" value="rgba(0,0,0,0.0)"/>
 	<preference name="windowBackground" value="rgba(255,255,255,0.0)"/>
@@ -30,4 +31,9 @@
 	<permission name="internet" />
 	<permission name="bootCompleted" />
 	<permission name="hardware" />
+	<feature name="wx">
+		<param name="urlScheme" value="wxd1b60b77a17440c7"/>
+		<param name="apiKey" value="wxd1b60b77a17440c7"/>
+		<param name="apiSecret" value="5b4a5492a44e299573dc9135d4e347e2"/>
+	</feature>
 </widget>
